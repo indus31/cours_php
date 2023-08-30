@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    
 <div>
 <?php
 $total = 20;
@@ -270,17 +271,169 @@ buildColumn(6,10);
  }
 secondTry(7);
 
+echo "<br/>";
+//jour 3
+
+//exercice 1
+
+$tabFifty = [];
+
+
+for($i = 0;$i<50;$i++){
+    $tabFifty[$i] = rand(-100,100);
+    echo $tabFifty[$i].",";
+}
+$countTableaux = count($tabFifty);
+echo "<br/>";
+echo ("la longueur du tableaux est de $countTableaux");
+
+//exercice 2
+
+function returnBigger($tab){
+    $max = $tab[0];
+    $maxArray = max($tab);
+    for ($i=1; $i<count($tab);$i++){
+        if ($tab[$i]>$max){
+            $max=$tab[$i];
+        }
+    }
+    echo "le max du tableau est ".$max;
+    echo "le max trouver avec la fonction interne".$maxArray;
+    return $max;
+}
+echo "<br/>";
+returnBigger($tabFifty);
+//exercice 3
+echo "<br/>";
+function moyenne($tab){
+    $compteur = 0;
+    foreach($tab as $key => $value){
+        $compteur += $value;
+    }
+    $moyenne = $compteur / 50;
+    echo "la moyenne est de ".$moyenne;
+    return $moyenne;
+}
+moyenne($tabFifty);
+//exercice 4
+echo "<br/>";
+
+function smallest ($tab){
+    $min = $tab[0];
+    $minArray = min($tab);
+    foreach ($tab as $key =>$value ){
+        if ($value<$min){
+            $min=$value;
+        }
+    }
+    echo " le minimum est ".$min;
+    echo "le min trouver avec la fonction interne".$minArray;
+    return $min;
+}
+smallest($tabFifty);
+// Exercice 5 
+
+function twoBigger ($tab){
+    $max=$tab[0];
+    $max2=$tab[1];
+    for ($i=1;$i<count($tab);$i++){
+        if ($tab[$i]>$max){
+            $max=$tab[$i];
+        }elseif ($tab[$i]>$max2){
+            $max2=$tab[$i];
+        }
+    }
+    echo " les deux plus grandes sont $max et $max2"."dimitri";
+}
+echo "<br/>";
+twoBigger($tabFifty);
+
+echo "<br/>";
+
+function secondBigger(array $tab)
+{
+    $max1 = null;
+    $max2 = null;
+   
+    for($i = 0 ; $i < count($tab);$i++){
+        if($tab[$i] > $max1){
+            $max2 = $max1;
+            $max1 = $tab[$i];
+            
+            }    
+        }echo " les deux plus grandes sont $max1 et $max2"."remi";
+}
+    
+
+
+secondBigger($tabFifty);
+
+function afficherTableauListe(array $tab ){
+    foreach($tab as $key =>$value){
+        echo "<li>$value</li>";
+};}
+//exercice bonus 1
+echo "<br/>";
+$a = [0,1,2,3,4];
+echo "la valeur ".$a[3];
+
+
+//exercice bonus 2
+
+$b = [
+    "zéro" => 0,
+    "un"   => 1,
+    "deux"  => 2,
+    "trois" => 3,
+    "quatre" => 4,
+];
+echo "<br/>";
+echo $b["trois"];
+
+echo "<br/>";
+
+
+//exercice bonus 3
 
 
 
 
+//exercice 6
+$tabRange = range(0,1000); // range(debut,fin,intervalle (facultatif)) ex range(0,1000,10)
 
+foreach($tabRange as $key =>$value){
+    echo $value.",";
+};
+//exercice 7
+//Parcourez le tableau et extrayez tous les nombres
+// premiers dans un autre tableau (un nombre premier 
+//n’est divisible que par 1 et par lui-même).
+//
 
+function isPremier(int $nb):bool{
+    if($nb < 2){
+        return false;
+    }
+    for($i = 2;$i<$nb;$i++){
+        if($nb % $i === 0){
+            return false;
+        }
 
+    }
+    return true;
+}
 
+$tabNbPremier = [];
 
-
-
+foreach($tabRange as $key =>$value){
+    isPremier($value);
+    if(isPremier($value) == true){
+        $tabNbPremier[$key] = $value;
+    };
+       
+};
+echo "<br/>";
+afficherTableauListe($tabNbPremier);
 
 
 
