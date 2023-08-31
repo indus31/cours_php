@@ -1,0 +1,7 @@
+pour activer docker (il faut l'executer après avoir lancé Docker) :
+
+docker-compose up 
+docker-compose down
+
+Pour avoir accès à un shell dans votre serveur : vous pouvez exécuter la commande suivante:
+docker exec -it docker-lamp-docker-lamp-php-1 bash (à exécuter dans un powerShell .... je crois !)

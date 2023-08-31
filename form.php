@@ -22,17 +22,25 @@
 
 
 <?php
+if(isset($_POST["input1"]) && isset($_POST["input2"])){
+    $nbr1 = $_POST["input1"];
+    $nbr2 = $_POST["input2"];
+}
 
-$nbr1 = $_POST["input1"];
-$nbr2 = $_POST["input2"];
+
+
 
 echo $nbr1 + $nbr2;
 
 echo "<br/>";
 
-$prixHt = $_POST["prixHT"];
-$Quantite = $_POST["quantite"];
-$TVA = $_POST["TVA"];
+if(isset($_POST["prixHT"]) && isset($_POST["quantite"]) && isset($_POST["TVA"])){
+    $prixHt = $_POST["prixHT"];
+    $Quantite = $_POST["quantite"];
+    $TVA = $_POST["TVA"];
+}
+
+
 
 $totalTTC = ($prixHt * $Quantite) * $TVA;
 

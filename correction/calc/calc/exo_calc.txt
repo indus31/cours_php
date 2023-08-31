@@ -1,0 +1,15 @@
+Exercice calculatrice : 
+
+Faire 1 formulaire sur une page "calculatrice.php" comprenant : 
+	- 2 inputs de type number avec un step à 0.01 pour les 2 nombres de l'opération
+	- une liste déroulante (<select>) pour sélectionner l'opérateur
+	- un input submit pour valider
+	
+	- Le form devra envoyer les données à la page "resultat.php"
+	
+	- La page résultat.php devra afficher l'opération et son résultat : 
+			exemple : 12 + 4 = 16
+			
+	- S'assurer de la cohérence des données
+	- Gérer les éventuels cas d'erreur
+	
