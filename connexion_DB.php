@@ -7,7 +7,7 @@ $hostName = "docker-lamp-mysql";
 
 $userName = "root";
 $password = "p@ssw0rd";
-$dbName = "bagarre";
+$dbName = "articles";
 
 $conn = null;
 
@@ -17,27 +17,57 @@ try{
     $conn = new PDO("mysql:host=$hostName;dbname=$dbName", $userName, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "connexion réussie";
+
+    if(isset($_POST["nom_article"]) && isset($_POST["contenu_article"])){
+
+        $name = $_POST["nom_article"];
+        $content = $_POST["contenu_article"];
+        $sql = "INSERT INTO article(nom_article,contenu_article)VALUES(?,?)";
+        $req = $conn->prepare($sql);
+        // 'INSERT INTO article(nom_article,contenu_article)VALUES(?,?)'
+
+        $req->bindParam(1,$name);
+        $req->bindParam(2,$content);
+        $req->execute();
+
+    }
+
+
+// innerhtml pas
+
+
+
+
 }
 //on capture les exceptions et on affiche les infos relative à celle-ci
 catch(PDOException $e){
     echo "erreur : ".$e->getMessage();
 
 }
+$conn = NULL;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // count($_POST["nom_article"] < 50)
-if(isset($_POST["nom_article"]) && isset($_POST["contenu_article"])){
-
-    $name = $_POST["nom_article"];
-    $content = $_POST["contenu_article"];
-
-}
 
 
 
-$req = $conn->prepare('INSERT INTO article(
-    value ($name,$content)');
 
-$req->bindParam('nom_article',$name,PDO::PARAM_STR);
-$req->execute();
+
+
 
 // <?php
 //     if(isset($_POST["nom_article"]) && isset($_POST["contenu_article"])){
@@ -81,7 +111,7 @@ $req->execute();
     <title>Document</title>
 </head>
 <body>
-<form action="bonjour.php" method="post">
+<form action="connexion_DB.php" method="post">
         <input type="texte" name="nom_article">
         <input type="texte" name="contenu_article">
         <input type="submit" value="envoyer">
