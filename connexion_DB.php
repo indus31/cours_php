@@ -24,16 +24,17 @@ try{
         $content = $_POST["contenu_article"];
         $sql = "INSERT INTO article(nom_article,contenu_article)VALUES(?,?)";
         $req = $conn->prepare($sql);
-        // 'INSERT INTO article(nom_article,contenu_article)VALUES(?,?)'
+        
 
         $req->bindParam(1,$name);
         $req->bindParam(2,$content);
         $req->execute();
+        echo "<p>".$name." ".$content." "."</p>";
 
     }
 
 
-// innerhtml pas
+
 
 
 
@@ -84,7 +85,7 @@ $conn = NULL;
 //         $req->bindParam(2, $content);
 //         $req->execute();    
 //     }
-//     ?>
+    ?>
 
 
 
@@ -98,7 +99,7 @@ $conn = NULL;
 
 
 
-?>
+
 
 
 
