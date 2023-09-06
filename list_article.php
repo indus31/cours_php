@@ -20,7 +20,7 @@ try{
     $req->execute();
     foreach($req as $data){?>
        <br> 
-       <p><?php echo $data["nom_article"] ?></p>
+       <a href="modif_article.php?id_article=<?= $data["id_article"] ?>"><h1><?php echo $data["nom_article"] ?></h1></a>
        <br>
        <p><?php echo $data["id_article"] ?></p>
        <br>
@@ -35,6 +35,9 @@ catch(PDOException $e){
     echo "erreur : ".$e->getMessage();
 
 }
+
+
+
 
 
 
