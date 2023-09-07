@@ -87,7 +87,7 @@ try {
     if (isset($_POST["nom_article"]) && isset($_POST["contenu_article"])) {
         $name = $_POST["nom_article"];
         $content = $_POST["contenu_article"];
-        $sql = "UPDATE article SET nom_article=?,contenu_article=?,id_categorie=? WHERE id_article = ? ";
+        $sql = "UPDATE article SET nom_article=?,contenu_article=?,id_categorie=? WHERE $_GET[id_article] ";
         $req = $conn->prepare($sql);
         $id_article = null;
         $id_categorie = null;
